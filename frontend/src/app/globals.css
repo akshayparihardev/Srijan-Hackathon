@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-card: #09090b;
+  --color-card-hover: #121214;
+  --color-muted: #a1a1aa;
+  --color-muted-foreground: #71717a;
+  --color-border: #27272a;
+  --color-border-hover: #3f3f46;
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+  
+  --color-risk-low: #10b981;
+  --color-risk-medium: #f59e0b;
+  --color-risk-high: #ef4444;
+
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), sans-serif;
+    overflow-x: hidden;
+    /* Subtle premium grain/radial background */
+    background-image: radial-gradient(circle at 50% 0%, #18181b 0%, #000000 70%);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar for premium feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-glass backdrop-blur-xl border border-glass-border shadow-sm;
+  }
+  .glowing-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500;
+  }
+}
